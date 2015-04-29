@@ -2,13 +2,14 @@
 MINI_BEGIN
 function KL()
 {
-    var SecureUrlMarker = null;
-    var InjectionId = null;
+    var SecureUrlMarker = "https://gc.kis.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/main.js";
+    var InjectionId = "1B74BD89-2A22-4B93-B451-1C9E1052A0EC";
 
 	  this.notifyProduct = function()
 	  {
         if (!isHttps() || isScriptUrlAlreadyInserted())
         {
+            console.debug("no init to inject");
             return;
         }
         
@@ -68,14 +69,6 @@ function KL()
 
         return headNode;
     }
-
-    function init()
-    {
-            SecureUrlMarker = "https://gc.kis.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/main.js";
-            InjectionId = "1B74BD89-2A22-4B93-B451-1C9E1052A0EC";
-    }
-
-    init();
 }
 
 var __kl = new KL();
